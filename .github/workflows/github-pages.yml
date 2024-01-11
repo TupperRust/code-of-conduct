@@ -23,7 +23,7 @@ jobs:
           --standalone
           --embed-resources
 
-    - uses: actions/artifact@v4
+    - uses: actions/upload-artifact@v4
       with:
         path: _site/
 
