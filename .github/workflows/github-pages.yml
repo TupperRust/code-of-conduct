@@ -10,13 +10,13 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    - run: mkdir -p _site
+    - run: mkdir -p dist
 
     - uses: docker://pandoc/core
       with:
         args: >-
           index.md
-          --output _site/index.html
+          --output dist/index.html
           --from markdown+emoji
           --to=revealjs
           --slide-level=4
@@ -26,7 +26,7 @@ jobs:
     - uses: actions/upload-artifact@v4
       with:
         name: github-pages
-        path: _site/
+        path: dist/
 
   deploy:
     needs: build
